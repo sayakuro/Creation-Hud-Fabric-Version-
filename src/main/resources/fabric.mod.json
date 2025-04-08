@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "fateless",
+	"version": "${version}",
+	"name": "Fateless Hub",
+	"description": "HUB Made By Fateless",
+	"authors": [
+		"puttergame_za"
+	],
+	"contact": {
+		"sources": "https://github.com/puttergame"
+	},
+	"license": "MIT",
+	"icon": "assets/fateless/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.fateless.FLTHubMod"
+		],
+		"client": [
+			"net.fateless.FLTHUBClient"
+		]
+	},
+	"mixins": [
+		"fatelesshub.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
