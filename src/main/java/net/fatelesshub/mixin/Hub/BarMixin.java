@@ -1,6 +1,6 @@
-package net.fateless.mixin.Hub;
+package net.fatelesshub.mixin.Hub;
 
-import net.fateless.overlay.HubBar;
+import net.fatelesshub.overlay.HubBar;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,4 +1,4 @@
-package net.fateless;
+package net.fatelesshub;
 
 import net.fabricmc.api.ModInitializer;
 

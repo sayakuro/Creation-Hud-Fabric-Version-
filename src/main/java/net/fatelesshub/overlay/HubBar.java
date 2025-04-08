@@ -1,4 +1,4 @@
-package net.fateless.overlay;
+package net.fatelesshub.overlay;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
@@ -9,15 +9,15 @@ import net.minecraft.util.Identifier;
 
 public class HubBar {
     private static final MinecraftClient mc = MinecraftClient.getInstance();
-    private static final Identifier Normal_Heart = new Identifier("fateless", "textures/gui/bars/fateless_ui/heart/normal_heart.png");
-    private static final Identifier Gold_Heart = new Identifier("fateless", "textures/gui/bars/fateless_ui/heart/gold_heart.png");
-    private static final Identifier Heart_Wither = new Identifier("fateless", "textures/gui/bars/fateless_ui/heart/wither_heart.png");
-    private static final Identifier Heart_Poision = new Identifier("fateless", "textures/gui/bars/fateless_ui/heart/poision_heart.png");
-    private static final Identifier Heart_Frozen = new Identifier("fateless", "textures/gui/bars/fateless_ui/heart/frozen_heart.png");
+    private static final Identifier Normal_Heart = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/heart/normal_heart.png");
+    private static final Identifier Gold_Heart = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/heart/gold_heart.png");
+    private static final Identifier Heart_Wither = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/heart/wither_heart.png");
+    private static final Identifier Heart_Poision = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/heart/poision_heart.png");
+    private static final Identifier Heart_Frozen = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/heart/frozen_heart.png");
 
 
-    private static final Identifier Fill_Line = new Identifier("fateless", "textures/gui/bars/fateless_ui/texture_line.png");
-    private static final Identifier Fill_Hp = new Identifier("fateless", "textures/gui/bars/fateless_ui/texture_health.png");
+    private static final Identifier Fill_Line = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/texture_line.png");
+    private static final Identifier Fill_Hp = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/texture_health.png");
 
     public void Renderhub(DrawContext context, float tickDelta) {
         if (mc.cameraEntity instanceof PlayerEntity player

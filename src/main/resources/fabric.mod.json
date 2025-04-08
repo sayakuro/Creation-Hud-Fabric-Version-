@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "fateless",
+	"id": "fatelesshub",
 	"version": "${version}",
 	"name": "Fateless Hub",
 	"description": "HUB Made By Fateless",
@@ -11,14 +11,14 @@
 		"sources": "https://github.com/puttergame"
 	},
 	"license": "MIT",
-	"icon": "assets/fateless/icon.png",
+	"icon": "assets/fatelesshub/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.fateless.FLTHubMod"
+			"net.fatelesshub.FLTHubMod"
 		],
 		"client": [
-			"net.fateless.FLTHUBClient"
+			"net.fatelesshub.FLTHUBClient"
 		]
 	},
 	"mixins": [
