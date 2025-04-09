@@ -36,26 +36,26 @@ public class HubBar {
             int screenWidth = mc.getWindow().getScaledWidth();
             int screenHeight = mc.getWindow().getScaledHeight();
 
-            int healthBarWidth = 79;
+            int healthBarWidth = 72;
             int healthBarHeight = 9;
 
             int healthBarX = (screenWidth / 2) - 91;
             int healthBarY = screenHeight - 39;
             // วาดแถบเลือด
             context.drawTexture(Fill_Line,
-                    healthBarX, healthBarY,
+                    healthBarX + 7, healthBarY,
                     0, 0,
                     healthBarWidth, healthBarHeight,
                     healthBarWidth, healthBarHeight);
 
             context.drawTexture(Fill_Hp,
-                    healthBarX, healthBarY,
+                    healthBarX + 7, healthBarY,
                     0, 0,
                     (int) (healthBarWidth * healthProportion), healthBarHeight,
                     healthBarWidth, healthBarHeight);
 
             TextRenderer textRenderer = mc.textRenderer;
-            String healthText = String.format("%.0f", health);
+            String healthText = (health % 1 == 0) ? String.format("%.0f", health) : String.format("%.1f", health);
             int textWidth = textRenderer.getWidth(healthText);
 
             float scale = 0.65f;
@@ -77,18 +77,18 @@ public class HubBar {
                 Heart_Type = Heart_Wither;
             } else if (player.hasStatusEffect(StatusEffects.POISON)) {
                 Heart_Type = Heart_Poision;
-            } else if (player.hasStatusEffect(StatusEffects.ABSORPTION)) {
-                Heart_Type = Gold_Heart;
             } else if (player.isFrozen()) {
                 Heart_Type = Heart_Frozen;
+            } else if (player.hasStatusEffect(StatusEffects.ABSORPTION)) {
+                Heart_Type = Gold_Heart;
             } else {
                 Heart_Type = Normal_Heart;
             }
             context.drawTexture(Heart_Type,
                     healthBarX, healthBarY,
                     0, 0,
-                    healthBarWidth, healthBarHeight,
-                    healthBarWidth, healthBarHeight);
+                    healthBarWidth + 7, healthBarHeight,
+                    healthBarWidth + 7, healthBarHeight);
 
             // Render mount health bar if the player has a vehicle
             renderMountHealthBar(context, player);
@@ -129,7 +129,7 @@ public class HubBar {
 
             // Draw mount health text
             TextRenderer textRenderer = mc.textRenderer;
-            String mountHealthText = String.format("%.0f", mountHealth);
+            String mountHealthText = (mountHealth % 1 == 0) ? String.format("%.0f", mountHealth) : String.format("%.1f", mountHealth);
             int textWidth = textRenderer.getWidth(mountHealthText);
 
             float scale = 0.65f;
