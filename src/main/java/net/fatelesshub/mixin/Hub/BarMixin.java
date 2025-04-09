@@ -3,6 +3,7 @@ package net.fatelesshub.mixin.Hub;
 import net.fatelesshub.overlay.HubBar;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,5 +34,9 @@ public class BarMixin {
     public float fakeAbsorption(PlayerEntity player) {
 
         return (player.getAbsorptionAmount() > 0) ? 20 : 0;
+    }
+    @Inject(method = "renderMountHealth", at = @At("HEAD"), cancellable = true)
+    private void cancelMountHealthRendering(DrawContext context, CallbackInfo ci) {
+        ci.cancel();
     }
 }
