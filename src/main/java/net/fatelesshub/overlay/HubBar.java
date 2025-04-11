@@ -22,6 +22,8 @@ public class HubBar {
 
     private static final Identifier Fill_Line = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/texture_line.png");
     private static final Identifier Fill_Hp = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/texture_health.png");
+    private static final Identifier Fill_Gold_Hp = new Identifier("fatelesshub", "textures/gui/bars/fateless_ui/texture_gold-health.png");
+
 
     public void Renderhub(DrawContext context, float tickDelta) {
         if (mc.cameraEntity instanceof PlayerEntity player
@@ -31,6 +33,7 @@ public class HubBar {
             float health = player.getHealth();
             float maxHealth = player.getMaxHealth();
             float healthProportion = health / maxHealth;
+            float absorptionAmount = player.getAbsorptionAmount();
             if (healthProportion > 1) healthProportion = 1F;
 
             int screenWidth = mc.getWindow().getScaledWidth();
@@ -54,9 +57,31 @@ public class HubBar {
                     (int) (healthBarWidth * healthProportion), healthBarHeight,
                     healthBarWidth, healthBarHeight);
 
+            if (absorptionAmount > 0) {
+                // Calculate absorption proportion (typically 1 heart = 2 health points)
+                // Maximum absorption in vanilla is 10 hearts (20 health points)
+                // We'll scale it to show the correct proportion based on absorption amount
+                float absorptionProportion = absorptionAmount / 20.0F; // Max 20 absorption points
+                if (absorptionProportion > 1) absorptionProportion = 1F;
+
+                // Calculate final width of gold bar
+                int goldWidth = (int)(healthBarWidth * absorptionProportion);
+
+                // Draw the gold health part - centered in the health bar
+                context.drawTexture(Fill_Gold_Hp,
+                        healthBarX + 7, healthBarY,
+                        0, 0,
+                        goldWidth, healthBarHeight,
+                        healthBarWidth, healthBarHeight);
+            }
+
             TextRenderer textRenderer = mc.textRenderer;
-            String healthText = (health % 1 == 0) ? String.format("%.0f", health) : String.format("%.1f", health);
-            int textWidth = textRenderer.getWidth(healthText);
+
+            // คำนวณและแสดงค่าเลือดรวม
+            float healthText = health + absorptionAmount;
+            String Texthealth = (healthText % 1 == 0) ? String.format("%.0f", healthText) : String.format("%.1f", healthText);
+
+            int textWidth = textRenderer.getWidth(Texthealth);
 
             float scale = 0.65f;
             float scaledTextWidth = textWidth * scale;
@@ -68,7 +93,7 @@ public class HubBar {
             context.getMatrices().push();                            // เริ่ม push matrix
             context.getMatrices().translate(textX, textY, 0);        // ย้ายไปตำแหน่งที่จะวาด
             context.getMatrices().scale(scale, scale, 1.0f);         // ย่อขนาด
-            context.drawText(textRenderer, healthText, 0, 0, 0xFFFFFF, true);
+            context.drawText(textRenderer, Texthealth, 0, 0, 0xFFFFFF, true);
             context.getMatrices().pop();                             // คืนค่า matrix
 
             //Heart_color
@@ -79,7 +104,7 @@ public class HubBar {
                 Heart_Type = Heart_Poision;
             } else if (player.isFrozen()) {
                 Heart_Type = Heart_Frozen;
-            } else if (player.hasStatusEffect(StatusEffects.ABSORPTION)) {
+            } else if (absorptionAmount > 0) {
                 Heart_Type = Gold_Heart;
             } else {
                 Heart_Type = Normal_Heart;
