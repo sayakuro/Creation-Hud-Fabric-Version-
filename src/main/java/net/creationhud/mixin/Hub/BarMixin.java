@@ -1,9 +1,8 @@
-package net.fatelesshub.mixin.Hub;
+package net.creationhud.mixin.Hub;
 
-import net.fatelesshub.overlay.HubBar;
+import net.creationhud.overlay.HubBar;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

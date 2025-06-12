@@ -1,11 +1,11 @@
-package net.fatelesshub;
+package net.creationhud;
 
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FLTHubMod implements ModInitializer {
+public class CTHubMod implements ModInitializer {
 	public static final String MOD_ID = "fateless";
 	public static final String MOD_NAME = "FatelesHUB";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);

@@ -1,9 +1,8 @@
 {
 	"required": true,
-	"package": "net.fatelesshub.mixin",
+	"package": "net.creationhud.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"FatelessHubMixin"
 	],
 	"client": [
 		"Hub.BarMixin"

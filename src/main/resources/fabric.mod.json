@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "fatelesshub",
+	"id": "creationhud",
 	"version": "${version}",
-	"name": "Fateless Hub",
-	"description": "HUB Made By Fateless",
+	"name": "Creation Mode Hud",
+	"description": "HUD Made By.Creation",
 	"authors": [
 		"puttergame_za"
 	],
@@ -11,18 +11,18 @@
 		"sources": "https://github.com/puttergame"
 	},
 	"license": "MIT",
-	"icon": "assets/fatelesshub/icon.png",
+	"icon": "assets/creationhud/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.fatelesshub.FLTHubMod"
+			"net.creationhud.CTHubMod"
 		],
 		"client": [
-			"net.fatelesshub.FLTHUBClient"
+			"net.creationhud.CTHUBClient"
 		]
 	},
 	"mixins": [
-		"fatelesshub.mixins.json"
+		"creationhud.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
