@@ -89,12 +89,12 @@ public class HubBar {
 
             float textX = healthBarX + (healthBarWidth / 2f) - (scaledTextWidth / 2f);
             float textY = healthBarY + (healthBarHeight / 2f) - (scaledFontHeight / 2f);
-
-            context.getMatrices().push();                            // เริ่ม push matrix
-            context.getMatrices().translate(textX, textY, 0);        // ย้ายไปตำแหน่งที่จะวาด
-            context.getMatrices().scale(scale, scale, 1.0f);         // ย่อขนาด
+            //init healt
+            context.getMatrices().push();
+            context.getMatrices().translate(textX, textY, 0);
+            context.getMatrices().scale(scale, scale, 1.0f);
             context.drawText(textRenderer, Texthealth, 0, 0, 0xFFFFFF, true);
-            context.getMatrices().pop();                             // คืนค่า matrix
+            context.getMatrices().pop();
 
             //Heart_active_effect
             Identifier Heart_Type;
