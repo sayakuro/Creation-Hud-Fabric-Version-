@@ -24,6 +24,7 @@ public class BarMixin {
     @Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/hud/InGameHud;renderHealthBar(Lnet/minecraft/client/gui/DrawContext;Lnet/minecraft/entity/player/PlayerEntity;IIIIFIIIZ)V"), method = "renderStatusBars")
     public void disableVanillaHealthBar(InGameHud instance, DrawContext context, PlayerEntity player, int x, int y, int lines, int regeneratingHeartIndex, float maxHealth, int lastHealth, int health, int absorption, boolean blinking) {
     }
+
     @Redirect(at = @At(value = "INVOKE", target = "Ljava/lang/Math;max(FF)F"), method = "renderStatusBars")
     public float fakeHealth(float a, float b) {
         return 20;
@@ -33,9 +34,5 @@ public class BarMixin {
     public float fakeAbsorption(PlayerEntity player) {
 
         return (player.getAbsorptionAmount() > 0) ? 20 : 0;
-    }
-    @Inject(method = "renderMountHealth", at = @At("HEAD"), cancellable = true)
-    private void cancelMountHealthRendering(DrawContext context, CallbackInfo ci) {
-        ci.cancel();
     }
 }
