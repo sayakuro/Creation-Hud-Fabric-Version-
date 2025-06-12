@@ -44,7 +44,6 @@ public class HubBar {
 
             int healthBarX = (screenWidth / 2) - 98;
             int healthBarY = screenHeight - 39;
-            // วาดแถบเลือด
             context.drawTexture(Fill_Line,
                     healthBarX + 7, healthBarY,
                     0, 0,
@@ -77,7 +76,6 @@ public class HubBar {
 
             TextRenderer textRenderer = mc.textRenderer;
 
-            // คำนวณและแสดงค่าเลือดรวม
             float healthText = health + absorptionAmount;
             String Texthealth = (healthText % 1 == 0) ? String.format("%.0f", healthText) : String.format("%.1f", healthText);
 
