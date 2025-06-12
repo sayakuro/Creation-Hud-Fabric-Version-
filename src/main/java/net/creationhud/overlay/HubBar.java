@@ -8,21 +8,23 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
+import static net.creationhud.CTHubMod.MOD_ID;
+
 public class HubBar {
     private static final MinecraftClient mc = MinecraftClient.getInstance();
-    private static final Identifier Normal_Heart = new Identifier("creationhud", "textures/gui/bars/games_ui/heart/normal_heart.png");
-    private static final Identifier Gold_Heart = new Identifier("creationhud", "textures/gui/bars/games_ui/heart/gold_heart.png");
-    private static final Identifier Heart_Wither = new Identifier("creationhud", "textures/gui/bars/games_ui/heart/wither_heart.png");
-    private static final Identifier Heart_Poision = new Identifier("creationhud", "textures/gui/bars/games_ui/heart/poision_heart.png");
-    private static final Identifier Heart_Frozen = new Identifier("creationhud", "textures/gui/bars/games_ui/heart/frozen_heart.png");
+    private static final Identifier Normal_Heart = new Identifier(MOD_ID, "textures/gui/bars/games_ui/heart/normal_heart.png");
+    private static final Identifier Gold_Heart = new Identifier(MOD_ID, "textures/gui/bars/games_ui/heart/gold_heart.png");
+    private static final Identifier Heart_Wither = new Identifier(MOD_ID, "textures/gui/bars/games_ui/heart/wither_heart.png");
+    private static final Identifier Heart_Poision = new Identifier(MOD_ID, "textures/gui/bars/games_ui/heart/poision_heart.png");
+    private static final Identifier Heart_Frozen = new Identifier(MOD_ID, "textures/gui/bars/games_ui/heart/frozen_heart.png");
 
     // Add mount-specific textures (you might want to create custom textures for these)
-    private static final Identifier Mount_Line = new Identifier("creationhud", "textures/gui/bars/games_ui/texture_line.png");
-    private static final Identifier Mount_Fill = new Identifier("creationhud", "textures/gui/bars/games_ui/texture_health.png");
+    private static final Identifier Mount_Line = new Identifier(MOD_ID, "textures/gui/bars/games_ui/texture_line.png");
+    private static final Identifier Mount_Fill = new Identifier(MOD_ID, "textures/gui/bars/games_ui/texture_health.png");
 
-    private static final Identifier Fill_Line = new Identifier("creationhud", "textures/gui/bars/games_ui/texture_line.png");
-    private static final Identifier Fill_Hp = new Identifier("creationhud", "textures/gui/bars/games_ui/texture_health.png");
-    private static final Identifier Fill_Gold_Hp = new Identifier("creationhud", "textures/gui/bars/games_ui/texture_gold-health.png");
+    private static final Identifier Fill_Line = new Identifier(MOD_ID, "textures/gui/bars/games_ui/texture_line.png");
+    private static final Identifier Fill_Hp = new Identifier(MOD_ID, "textures/gui/bars/games_ui/texture_health.png");
+    private static final Identifier Fill_Gold_Hp = new Identifier(MOD_ID, "textures/gui/bars/games_ui/texture_gold-health.png");
 
 
     public void Renderhub(DrawContext context, float tickDelta) {
@@ -94,7 +96,7 @@ public class HubBar {
             context.drawText(textRenderer, Texthealth, 0, 0, 0xFFFFFF, true);
             context.getMatrices().pop();                             // คืนค่า matrix
 
-            //Heart_color
+            //Heart_active_effect
             Identifier Heart_Type;
             if (player.hasStatusEffect(StatusEffects.WITHER)) {
                 Heart_Type = Heart_Wither;
